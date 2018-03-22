@@ -10,18 +10,24 @@ Encoder::~Encoder()
 {
 }
 
-void Encoder::add(const string & sequence, int frequency)
+void Encoder::add(const vector<char>& sequence, int frequency)
 {
 	_nodes.push(HuffmanNode(sequence, frequency));
 
 }
 
-vector<char> Encoder::encode(const string & str)
+vector<char> Encoder::encode(const vector<char>& str)
 {
 	return vector<char>();
 }
 
-string Encoder::decode(vector<char> encoding)
+vector<char> Encoder::decode(const vector<char>& encoding)
 {
-	return string();
+	return vector<char>();
+}
+
+
+void Encoder::generateTree()
+{
+
 }
