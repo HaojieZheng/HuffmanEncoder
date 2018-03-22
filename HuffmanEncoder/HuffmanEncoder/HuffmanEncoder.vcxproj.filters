@@ -24,7 +24,7 @@
     <ClInclude Include="Encoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HuffmanNode.h">
+    <ClInclude Include="Structs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

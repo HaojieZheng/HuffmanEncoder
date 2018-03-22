@@ -1,11 +1,9 @@
 #pragma once
-#include "HuffmanNode.h"
-
+#include "Structs.h"
+#include <vector>
 #include <queue>
 
-
-
-
+using namespace std;
 
 
 class Encoder
@@ -19,7 +17,7 @@ public:
 	vector<char> decode(const vector<char>& encoding);
 
 private:
-	priority_queue<HuffmanNode, vector<HuffmanNode>> _nodes;
+	vector<EncoderEntry> _nodes;
 
 	void generateTree();
 
