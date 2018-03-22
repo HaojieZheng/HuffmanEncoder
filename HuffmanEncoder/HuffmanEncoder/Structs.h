@@ -18,13 +18,19 @@ struct EncoderEntry
 
 struct HuffmanTreeNode
 {
-	EncoderEntry * entry;
+	HuffmanTreeNode(const EncoderEntry * entry)
+	{
+		this->entry = entry;
+		frequency = entry->frequency;
+	}
+
+	const EncoderEntry * entry;
 	int frequency;
 	HuffmanTreeNode* zeroBranch = nullptr;
 	HuffmanTreeNode* oneBranch = nullptr;
 
-	static bool compare (const HuffmanTreeNode * a,  const HuffmanTreeNode * b)
+	bool operator<(const HuffmanTreeNode& b) const
 	{
-			return a->frequency < b->frequency;
+		return frequency < b.frequency;
 	}
 };

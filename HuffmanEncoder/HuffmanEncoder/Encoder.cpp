@@ -23,6 +23,7 @@ void Encoder::add(const vector<char>& sequence, int frequency)
 
 vector<char> Encoder::encode(const vector<char>& str)
 {
+	generateTree();
 	return vector<char>();
 }
 
@@ -34,6 +35,12 @@ vector<char> Encoder::decode(const vector<char>& encoding)
 
 void Encoder::generateTree()
 {
-	priority_queue<EncoderEntry, vector<EncoderEntry>> nodesHeap;
+	priority_queue<HuffmanTreeNode, vector<HuffmanTreeNode>> nodesHeap;
+	for (auto iter = _nodes.begin(); iter != _nodes.end(); iter++)
+	{
+		nodesHeap.push(HuffmanTreeNode(&(*iter)));
+	}
+
+
 	
 }
