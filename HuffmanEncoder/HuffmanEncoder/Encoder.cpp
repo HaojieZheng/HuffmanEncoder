@@ -23,7 +23,7 @@ void Encoder::add(const vector<char>& sequence, int frequency)
 
 vector<char> Encoder::encode(const vector<char>& str)
 {
-	generateTree();
+	auto tree = generateTree();
 	return vector<char>();
 }
 
@@ -33,14 +33,25 @@ vector<char> Encoder::decode(const vector<char>& encoding)
 }
 
 
-void Encoder::generateTree()
+HuffmanTreeNode* Encoder::generateTree()
 {
-	priority_queue<HuffmanTreeNode, vector<HuffmanTreeNode>> nodesHeap;
+	priority_queue<HuffmanTreeNode *, vector<HuffmanTreeNode*>, decltype(&HuffmanTreeNode::compare)> nodesHeap(HuffmanTreeNode::compare);
 	for (auto iter = _nodes.begin(); iter != _nodes.end(); iter++)
 	{
-		nodesHeap.push(HuffmanTreeNode(&(*iter)));
+		nodesHeap.push(new HuffmanTreeNode(&(*iter)));
 	}
 
+	while (nodesHeap.size() > 1)
+	{
+		// pop smallest 2
+		auto first = nodesHeap.top();
+		nodesHeap.pop();
+		auto second = nodesHeap.top();
+		nodesHeap.pop();
 
+		auto parentNode = new HuffmanTreeNode(first, second);
+		nodesHeap.push(parentNode);
+	}
 	
+	return nodesHeap.top();
 }

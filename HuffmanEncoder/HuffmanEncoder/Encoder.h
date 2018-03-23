@@ -5,6 +5,7 @@
 
 using namespace std;
 
+struct HuffmanTreeNode;
 
 class Encoder
 {
@@ -19,7 +20,7 @@ public:
 private:
 	vector<EncoderEntry> _nodes;
 
-	void generateTree();
+	HuffmanTreeNode* generateTree();
 
 };
 

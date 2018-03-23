@@ -24,13 +24,21 @@ struct HuffmanTreeNode
 		frequency = entry->frequency;
 	}
 
+	HuffmanTreeNode(HuffmanTreeNode * child1, HuffmanTreeNode * child2)
+	{
+		this->entry = nullptr;
+		frequency = child1->frequency + child2->frequency;
+		zeroBranch = child1;
+		oneBranch = child2;
+	}
+
 	const EncoderEntry * entry;
 	int frequency;
 	HuffmanTreeNode* zeroBranch = nullptr;
 	HuffmanTreeNode* oneBranch = nullptr;
 
-	bool operator<(const HuffmanTreeNode& b) const
+	static bool compare(const HuffmanTreeNode * a, const HuffmanTreeNode * b)
 	{
-		return frequency < b.frequency;
+		return a->frequency > b->frequency;
 	}
 };
