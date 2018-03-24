@@ -3,6 +3,7 @@
 #include "Structs.h"
 #include <vector>
 
+
 using namespace std;
 
 
@@ -20,6 +21,14 @@ void Encoder::add(const vector<char>& sequence, int frequency)
 	_nodes.push_back(EncoderEntry(sequence, frequency));
 
 }
+
+TrieNode * generateTrie(HuffmanTreeNode* root)
+{
+
+
+	return nullptr;
+}
+
 
 vector<char> Encoder::encode(const vector<char>& str)
 {

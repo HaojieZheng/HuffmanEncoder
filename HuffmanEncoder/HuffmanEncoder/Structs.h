@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
@@ -41,4 +42,13 @@ struct HuffmanTreeNode
 	{
 		return a->frequency > b->frequency;
 	}
+};
+
+
+struct TrieNode
+{
+	char c == '\0';
+	unordered_map<char, TrieNode *> nextChar;
+	int representation = 0;
+	int bitcount = 0;
 };
